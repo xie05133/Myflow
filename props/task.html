@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../lib/bootstrap.min.css" rel="stylesheet">
+	<script src="../lib/jquery.min.js"></script>
+	<script src="../lib/bootstrap.min.js"></script>
+
+
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../lib/css/style.css" rel="stylesheet">
+	<link href="../lib/iconfont/iconfont.css" rel="stylesheet">
+	<script type="text/javascript" src="../lib/layer/layer.js"></script>
+	<script type="text/javascript" src="../lib/selectUser.js"></script>
+	<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+	<form class="form-horizontal">
+		<div class="myflow_tab" id="prop_app">
+			<ul class="nav nav-tabs">
+				<li class="active"><a class="fa fa-book" href="#base" data-toggle="tab" aria-expanded="true">
+						基本</a></li>
+				<li class=""><a class="fa fa-user" href="#processingperson" data-toggle="tab" aria-expanded="false">
+						处理人</a></li>
+				<li><a class="fa fa-comment-o" href="#notice" data-toggle="tab" aria-expanded="false">
+						处理人通知</a></li>
+				<li><a class="fa fa-clock-o" href="#remind" data-toggle="tab" aria-expanded="false">
+						定时提醒</a></li>
+				<!-- <li><a class="fa fa-clock-o" href="#timeout" data-toggle="tab" aria-expanded="false">
+						超时</a></li>
+				<li><a class="fa fa-asterisk" href="#event" data-toggle="tab" aria-expanded="false">
+						事件</a></li> -->
+			</ul>
+			<div class="tab-content">
+				<div class="tab-content">
+					<div class="tab-pane active" id="base">
+						<!-- <div class="form-group">
+							<label class="col-xs-2 control-label m">表单类型：</label>
+							<div class="col-xs-10">
+								<label class="radio-inline" style="line-height: 22px;">
+									<input type="radio" name="formType" value="custom">自定义
+								</label>
+								<label class="radio-inline" style="line-height: 22px;">
+									<input type="radio" name="formType" value="system">系统表单
+								</label>
+
+							</div>
+						</div> -->
+						<div class="form-group">
+							<label class="col-xs-2 control-label m">表单：</label>
+							<div class="col-xs-10">
+								<input type="text" name="formUrl" data-pure-clear-button="" class="form-control"
+									placeholder="请输入名称" v-model="formUrl" placeholder="不填则以默认方式处理">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label m">退回类型：</label>
+							<div class="col-xs-10">
+								<label class="radio-inline" style="line-height: 22px;">
+									<input type="radio" name="returnType" value="1" v-model="returnType">直接回到源节点
+								</label>
+								<label class="radio-inline" style="line-height: 22px;">
+									<input type="radio" name="returnType" value="2" v-model="returnType">重新走流程
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label m">处理时间：</label>
+							<div class="col-xs-2">
+								<input type="text" name="dealDay" data-pure-clear-button="" class="form-control"
+									placeholder="请输入处理时间" v-model="dealDay">
+							</div>
+							<div class="col-xs-1" style="margin: 0;padding:0;">
+								<label class=" control-label">天</label>
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<label class="col-xs-2 control-label m">处理时间：</label>
+							<div class="col-xs-10">
+								<input type="text" name="formUrl" data-pure-clear-button="" class="form-control"
+									placeholder="请输入名称" v-model="formUrl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label m">处理时间：</label>
+							<div class="col-xs-10">
+								<input type="text" name="formUrl" data-pure-clear-button="" class="form-control"
+									placeholder="请输入名称" v-model="formUrl">
+							</div>
+						</div> -->
+					</div>
+					<div class="tab-pane" id="processingperson">
+						<div class="form-group">
+							<div style="margin-bottom:7px;"><label>处理人列表：</label>
+								<div class="pull-right">
+									<label type="button" title="新增处理人员" class="btn  btn-primary btn-xs"
+										onclick="addUser()"><i class="fa fa-plus"></i></label>
+								</div>
+							</div>
+							<div class="user-select">
+							</div>
+
+
+						</div>
+
+						<!-- <div class="form-group">
+							<fieldset>
+								<legend>处理策略</legend>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserStrategy" value="custom">列表中的第一处理人
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserStrategy" value="system">发送给列表中的所有处理人
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserStrategy" value="system"> 弹出选择审批人
+								</label>
+							</fieldset>
+						</div> -->
+						<!-- <div class="form-group">
+							<fieldset>
+								<legend>自动同意策略</legend>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserAutoAgree" value="custom">处理人就是提交人
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserAutoAgree" value="system">处理人和上一步相同
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserAutoAgree" value="system"> 处理人已经审批过
+								</label>
+							</fieldset>
+						</div> -->
+						<div class="form-group">
+							<fieldset>
+								<legend>无对应处理人</legend>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserNoDo" value="1" v-model="approveUserNoDo">不能提交
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="approveUserNoDo" value="2" v-model="approveUserNoDo">跳过本步骤
+								</label>
+							</fieldset>
+						</div>
+						<div class="form-group">
+							<fieldset>
+								<legend>通过策略</legend>
+								<div class="radio">
+									<label>
+										<input type="radio" name="approveUserPassAgree" value="1"
+											v-model="approveUserPassAgree">一人同意即可
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input type="radio" name="approveUserPassAgree" value="2"
+											v-model="approveUserPassAgree">所有人必须同意
+									</label>
+								</div>
+								<!-- <div class="radio">
+								<label>
+									<input type="radio" name="approveUserPassAgree" value="custom">通过百分比
+								</label>
+							</div> -->
+							</fieldset>
+						</div>
+
+						<div class="form-group">
+							<fieldset>
+								<legend>分支合并操作</legend>
+								<label class="radio-inline">
+									<input type="radio" name="approveMergeDo" value="1" v-model="approveMergeDo">前序动作都完成
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="approveMergeDo" value="2"
+										v-model="approveMergeDo">前序任一动作完成
+								</label>
+							</fieldset>
+						</div>
+					</div>
+					<div class="tab-pane" id="notice">
+						<div class="myflow_tab">
+							<ul class="nav nav-tabs">
+								<li class="active"><a class="fa fa-book" href="#notice-type-system" data-toggle="tab"
+										aria-expanded="true">站内</a></li>
+								<li class=""><a class="fa fa-user" href="#notice-type-sms" data-toggle="tab"
+										aria-expanded="false">短信</a></li>
+								<li><a class="fa fa-braille" href="#notice-type-email" data-toggle="tab"
+										aria-expanded="false">邮件</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-content">
+									<div class="tab-pane active" id="notice-type-system">
+										<div class="row">
+											<div class="col-xs-12">
+												<label class="checkbox-inline">
+													<input type="checkbox" v-model="noticeSystem" value="true">启用本通知
+												</label>
+											</div>
+										</div>
+										<div class="row" style="margin-top: 15px;">
+											<div class="form-group">
+												<div class="col-xs-12">
+													<input class="form-control" placeholder="请输入站内标题"
+														v-model="noticeSystemTitle">
+												</div>
+											</div>
+											<div style="margin-bottom: 15px;">
+												<div class="col-xs-12">
+													<textarea class="form-control" style="height: 150px"
+														placeholder="请输入站内信息" v-model="noticeSystemContent"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="notice-type-sms">
+										<div class="row">
+											<div class="col-xs-12">
+												<label class="checkbox-inline">
+													<input type="checkbox" v-model="noticeSms" value="true">启用本通知
+												</label>
+											</div>
+										</div>
+										<div class="row" style="margin-top: 15px;">
+											<div style="margin-bottom: 15px;">
+												<div class="col-xs-12">
+													<textarea class="form-control" style="height: 150px"
+														placeholder="请输入短信内容" v-model="noticeSmsContent"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="notice-type-email">
+										<div class="row">
+											<div class="col-xs-12">
+												<label class="checkbox-inline">
+													<input type="checkbox" v-model="noticeEmail" value="true">启用本通知
+												</label>
+											</div>
+										</div>
+										<div class="row" style="margin-top: 15px;">
+											<div class="form-group">
+												<div class="col-xs-12">
+													<input class="form-control" placeholder="请输入邮件主题"
+														v-model="noticeEmailTitle">
+												</div>
+											</div>
+											<div style="margin-bottom: 15px;">
+												<div class="col-xs-12">
+													<textarea class="form-control" style="height: 150px"
+														placeholder="请输入邮件内容" v-model="noticeEmailContent"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="remind">
+						<table class="formTable">
+								<colgroup><col width="100"> <col width="100"> <col width="100"> <col width="80"> <col width="200"> <col width="80"></colgroup>
+							<thead>
+								<tr>
+									<th>提醒对象</th>
+									<th>指定人</th>
+									<th>提醒时间</th>
+									<th>是否重复</th>
+									<th>提醒内容</th>
+									<th style="text-align:center;"><label type="button" title="新增"
+											class="btn  btn-primary btn-xs" onclick="addRemind()"><i
+												class="fa fa-plus"></i></label></th>
+								</tr>
+							</thead>
+							<tbody id="remindRules">
+								<tr is="remind-rules" v-for="(item,index) in remindRules" v-bind:rule="item" v-bind:key="index"></tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- <div class="tab-pane" id="timeout">
+						<p>You are watching Section 3.</p>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	<script>
+		var default_props = {
+			formUrl: "",
+			returnType: 1,
+			dealDay: 0,
+			approveUserNoDo: 1,
+			approveUserPassAgree: 1,
+			approveMergeDo: 1,
+			//通知处理人
+			noticeSystem: false,
+			noticeSystemTitle: "",
+			noticeSystemContent: "",
+			noticeSms: false,
+			noticeSmsContent: "",
+			noticeEmail: false,
+			noticeEmailTitle: "",
+			noticeEmailContent: "",
+			remindRules: []
+		};
+		//页面初始化方法(由flowJS调用)
+		function init(obj) {
+			$.extend(default_props, obj, true)
+			var vm = new Vue({
+				el: "#prop_app",
+				data: default_props,
+
+			})
+			if (obj.users) {
+				appendUsers(obj.users)
+			}
+		}
+
+		function submitHandler(callback) {
+			var props = {};
+			$.extend(props, default_props, true);
+			var targetUsers = new Array();
+			//处理下user的数组
+			$.each(users, function (i, v) {
+				var u = {};
+				for (var k in v) {
+					if (k == "dom") {
+						continue;
+					}
+					u[k] = v[k]
+				}
+				targetUsers.push(u);
+			})
+			props.users = targetUsers;
+			callback(props);
+		}
+
+
+		// 定义名为 RemindRules 的新组件
+		Vue.component('remind-rules', {
+			props: ["rule"],
+			template: '#remind_rule_temp',
+			methods: {
+				editRemindObj: function () {
+					addRemind(this.rule)
+				},
+				delRemindObj: function () {
+					window.default_props.remindRules.some((item,i)=>{
+						if(this.rule.Id==item.Id){
+							window.default_props.remindRules.splice(i,1)
+						}
+					})
+				}
+			}
+		})
+		// 定义名为 RemindRules 的新组件
+		Vue.component('remind-rules-remindobj', {
+			props: ["obj"],
+			template: '#remind_rule_obj_temp',
+		})
+		// 定义名为 RemindRules 的新组件
+		Vue.component('remind-rules-users', {
+			props: ["obj"],
+			template: '#remind_rule_users_temp',
+		})
+		//定时提醒规则
+		var remindRules = new Array();
+		function addRemind(remindRule) {
+			window.parent.layer.open({
+				type: 2,
+				title: "添加定时提醒规则",
+				scrollbar: false,
+				shadeClose: false,
+				maxmin: false,
+				shade: 0.8,
+				area: ['800px', '500px'],
+				content: 'addRemind.html', //iframe的url
+				btn: ['确定', '取消'],
+				yes: function (index, layero) {
+					var iframeWin = layero.find('iframe')[0];
+					iframeWin.contentWindow.submitHandler(remindCallback);
+					window.parent.layer.close(index)
+				},
+				success: function (layero, index) {
+					var iframeWin = layero.find('iframe')[0];
+					iframeWin.contentWindow.init(remindRule);
+				}
+			})
+
+			function remindCallback(remindRule) {
+				if(!default_props.remindRules.some((item)=>{
+					if (item.Id == remindRule.Id) {
+							$.extend(item, remindRule, true);
+							return true;
+					}
+				}) ){
+					default_props.remindRules.push(remindRule)
+				}
+			}
+		}
+	</script>
+
+	<template id="remind_rule_temp">
+			<tr>
+					<td>
+						<remind-rules-remindobj v-for="(item,index) in rule.remindObj" v-bind:obj="item" v-bind:key="index"></remind-rules-remindobj>
+					</td>
+					<td>
+						<remind-rules-users v-for="(item,index) in rule.users" v-bind:obj="item" v-bind:key="index"></remind-rules-users>
+					</td>
+					<td>距离{{rule.remindDay}}天提醒</td>
+					<td>{{rule.remindAgain==1?"是":"否"}}</td>
+					<td>张三</td>
+					<td style="text-align:center;">
+						<label type="button" title="编辑" class="btn  btn-success btn-xs"
+							v-on:click="editRemindObj"><i class="fa fa-pencil-square-o"></i></label>
+						<label type="button" title="删除" class="btn  btn-danger btn-xs"
+							v-on:click="delRemindObj"><i class="fa fa-trash-o"></i></label>
+
+					</td>
+				</tr>
+	</template>
+	<template id="remind_rule_obj_temp">
+		<span style="display: block;">{{obj==1?"处理人":obj==2?"上级":"指定人"}}</span>
+	</template>
+	<template id="remind_rule_users_temp">
+		<span style="display: block;">{{obj.userName}}</span>
+	</template>
+</body>
+
+</html>

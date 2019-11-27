@@ -1,0 +1,316 @@
+*{
+	box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    font-family: Arial, sans-serif, Helvetica, Tahoma;
+    font-size: 12px;
+    line-height: 1.5;
+    color: black;
+}
+.myflow_tools {
+	position: fixed;
+	top: 10px;
+	left: 30px;
+	background-color: #fff;
+	width: 70px;
+	cursor: default;
+	padding: 3px;
+
+}
+
+.myflow_tools>.myflow_tools_handle {
+	background: #999999;
+	text-align: center;
+	padding: 5px;
+	color: #fff;
+	font-size: 17px;
+}
+
+.myflow_tools>.node {
+	padding: 5px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.myflow_tools>.node:hover,
+.myflow_tools>.selected {
+	background: #3333;
+
+}
+
+.myflow_tools>.node i {
+	padding-right: 5px;
+}
+
+path[stroke="#ffffff"]{
+visibility:hidden;
+pointer-events: stroke;
+}
+
+
+.myflow_props_table{width:100%;border:0;margin:0;border-collapse:collapse;border-spacing:0;}
+/*控制cellspacing*/
+.myflow_props_table td{padding:0;}                                                                
+/*控制cellpadding*/
+.myflow_props_table th{
+	text-align: right;
+	color:#183152;
+	width: 120px;
+	background-color: #eeeeee;
+	border:1px solid #c1c1c1;
+	line-height: 21px;
+	padding: 0;
+}
+.myflow_props_table td{
+	height: 28px;
+	line-height: 28px;
+	border:1px solid #c1c1c1;
+	padding: 2px;
+}
+
+
+
+
+body {
+	margin: 0;
+	padding: 10px;
+	text-align: left;
+	font-family: Arial, sans-serif, Helvetica, Tahoma;
+	font-size: 12px;
+	line-height: 1.5;
+	color: black;
+}
+
+.row >.form-group{
+	margin-left:0;
+	margin-right:0;
+}
+
+.myflow_tab {
+	background: #fff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+.myflow_tab>.tab-content {
+	background: #fff;
+	padding: 10px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.myflow_tab>.nav-tabs {
+	margin: 0;
+	border-bottom-color: #f4f4f4;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.myflow_tab>.nav-tabs>li {
+	border-top: 3px solid transparent;
+	margin-bottom: -2px;
+	margin-right: 5px;
+}
+
+.myflow_tab>.nav-tabs>li>a {
+	color: #444;
+	border-radius: 0;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.myflow_tab>.nav-tabs>li.active>a {
+	border-top-color: transparent;
+	border-left-color: #f4f4f4;
+	border-right-color: #f4f4f4;
+}
+
+.myflow_tab>.nav-tabs>li>a,
+.nav-tabs-custom>.nav-tabs>li>a:hover {
+	background: transparent;
+	margin: 0;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.myflow_tab>.nav-tabs>li.active {
+	border-top-color: #3c8dbc;
+}
+
+#processingperson .form-group {
+	margin: 0 0 15px 0;
+}
+
+.user-select {
+	margin-left: -10px;
+}
+
+.user-select>div {
+	border: 1px solid;
+	float: left;
+	width: 100px;
+	overflow: hidden;
+	border-radius: 5px;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 0 10px 10px;
+	position: relative;
+}
+
+.user-select>div:hover .closebtn{
+	display: block;
+}
+
+.user-select:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.user-select .closebtn{
+	position: absolute;
+    line-height: normal;
+    color: red;
+    height: 15px;
+    width: 10px;
+    top: 0;
+	right: 3px;
+	display: none;
+	cursor: pointer;
+}
+.user-select .closebtn:before{
+	display: block;
+	content: "X";
+	
+}
+
+
+fieldset>legend {
+	display: block;
+	width: auto;
+	padding: 0;
+	margin-bottom: 5px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: inherit;
+	color: #333;
+	border: 0;
+	border-bottom: none;
+}
+
+fieldset {
+	margin-top: 10px;
+}
+
+fieldset>.radio-inline {
+	padding-top: 0;
+	line-height: 22px;
+}
+
+fieldset {
+	padding: .35em .625em .75em;
+	margin: 0 2px;
+	border: 1px solid #c0c0c0;
+}
+
+
+
+.box-header {
+	padding: 10px 0;
+	border-right: 1px solid #9999;
+	border-bottom: 1px solid #9999;
+}
+
+.box-body {
+	border-right: 1px solid #9999;
+}
+
+.userlist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.userlist>li {
+	display: inline;
+	float: left;
+	height: 43px;
+	margin: 10px 15px 0px 0;
+	outline: none;
+	position: relative;
+}
+
+.userlist>.selected .fa-check {
+	display: inline;
+}
+
+.userlist>li>a {
+	background: #fff;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 39px;
+	outline: none;
+	overflow: hidden;
+	padding: 0px 0px;
+	text-align: center;
+	text-align: center;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: 98px;
+	word-break: keep-all;
+	color: #000;
+	text-decoration: none;
+}
+
+.userlist>li>a:hover,
+.userlist>.selected a {
+	border: 1px solid #4A5B79;
+	padding: 0 0px;
+	text-decoration: none;
+}
+
+.userlist .fa-check {
+	position: absolute;
+	bottom: 2px;
+	right: 0;
+	background: #000;
+	color: #fff;
+	display: none;
+}
+
+
+.formTable{
+	margin: 0;
+    width: 100%;
+    background-color: #fff;
+	color: #666;
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+.formTable thead tr{
+	background-color: #f2f2f2;
+}
+.formTable th{
+	text-align: left;
+	position: relative;
+}
+.formTable td,.formTable th{
+	position: relative;
+    min-height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	padding: 5px 10px;
+	border-width: 1px;
+    border-style: solid;
+	border-color: #e6e6e6;
+}

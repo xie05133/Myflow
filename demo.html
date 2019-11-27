@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link type="text/css" href="lib/jquery-ui-1.12.1.custom/jquery-ui.min.css"
+		rel="stylesheet" />
+	<link href="lib/css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="lib/raphael-min.js"></script>
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="myflow.js"></script>
+	<script type="text/javascript" src="myflow.jpdl4.js"></script>
+	<script type="text/javascript" src="myflow.editors.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<link href="lib/iconfont/iconfont.css" rel="stylesheet">
+	<script type="text/javascript" src="lib/layer/layer.js"></script>
+	
+</head>
+
+<body>
+
+	<div class="ui-widget-content myflow_tools">
+		<div class="myflow_tools_handle ui-widget-header"> 工具集 </div>
+
+		<div class="node" id="myflow_revoke" nodetype="revoke"><i class="iconfont">&#xe608;</i>撤销</div>
+		<div class="node" id="myflow_redraw" nodetype="redraw"><i class="iconfont">&#xe62b;</i>重绘</div>
+		<div class="node" id="myflow_save" nodetype="save"><i class="iconfont">&#xe6cf;</i>保存</div>
+		<div>
+
+			<hr />
+		</div>
+		<div class="node selectable selected" nodetype="pointer"><i class="iconfont">&#xe601;</i>选择</div>
+		<div class="node selectable" nodetype="path"><i class="iconfont">&#xe654;</i>路径</div>
+		<div>
+			<hr />
+		</div>
+		<div class="node state" id="start" type="start"><i class="iconfont">&#xe600;</i>开始</div>
+		<div class="node state" id="task" type="task"><i class="iconfont">&#xe619;</i>任务</div>
+		<!-- <div class="node state" id="fork" type="fork"><i class="iconfont">&#xec07;</i>分支</div>
+		<div class="node state" id="join" type="join"><i class="iconfont">&#xebea;</i>合并</div> -->
+		<div class="node state" id="end" type="end"><i class="iconfont">&#xe73e;</i>结束</div>
+		<hr />
+		<div class="node" nodetype="prop"><i class="iconfont">&#xe73e;</i>属性</div>
+	</div>
+
+
+	<div id="myflow_props" style="display: none;padding: 20px;">
+			<table width="100%" cellpadding="0" cellspacing="0" class="myflow_props_table">
+				<tr>
+					<td>aaa</td>
+				</tr>
+				<tr>
+					<td>aaa</td>
+				</tr>
+			</table>
+			<div>&nbsp;</div>
+			</div>
+	<div id="myflow"></div>
+</body>
+
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		font-family: Arial, sans-serif, Helvetica, Tahoma;
+		font-size: 12px;
+		line-height: 1.5;
+		color: black;
+		background: rgb(255, 255, 255) url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UwZTBlMCIgb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=") -1px -1px;
+	}
+
+</style>
+
+</html>

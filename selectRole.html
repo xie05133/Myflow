@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../lib/bootstrap.min.css" rel="stylesheet">
+	<script src="../lib/jquery.min.js"></script>
+	<script src="../lib/bootstrap.min.js"></script>
+
+
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../lib/css/style.css" rel="stylesheet">
+	<link href="../lib/iconfont/iconfont.css" rel="stylesheet">
+	<script type="text/javascript" src="../lib/layer/layer.js"></script>
+	<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+
+</head>
+
+<body>
+        <div class="form-group">
+            <div class="col-xs-12" id="roles">
+                <!-- <div class="checkbox i-checks">
+                    <label>
+                        <input type="checkbox"  value="221"> <i></i> 科长</label>
+                </div>
+                <div class="checkbox i-checks">
+                    <label>
+                        <input type="checkbox"  value="222"> <i></i> 科员</label>
+                </div>
+                <div class="checkbox i-checks">
+                    <label>
+                        <input type="checkbox"  value="223"> <i></i> 管理员</label>
+                </div> -->
+                <ul class="userlist" id="userList">
+
+                </ul>
+            </div>
+            
+        </div>
+
+	<script>
+
+	</script>
+</body>
+
+<style>
+.form-horizontal .form-group{
+    margin:0;
+}
+</style>
+<script>
+    var roles = [{
+            userName: '科长',
+            userId: 221
+        }, {
+            userName: '科员',
+            userId: 222
+        }]
+    var uType,typeTxt;
+    var selected = new Array();
+function submitHandler(frame,callback,index){
+    // var users=new Array();
+    // $("#roles").find("input[type='checkbox']:checked").each(function(){
+    //     var user={
+    //         userType:uType,
+    //         userName:typeTxt+"-"+$(this).parent().text().replace(/\s+/,""),
+    //         userId:$(this).val()
+    //     };
+    //     users.push(user);
+    // })
+    $.each(selected,function(i,v){
+            v["userType"]=uType
+            if(v.userName.indexOf('-')==-1){
+                v.userName=typeTxt+'-'+v.userName
+            }
+            console.log(222)
+        })
+        console.log(1111)
+    callback(selected,index,uType)
+}
+
+function init(users,type,txt){
+    uType=type;
+    typeTxt=txt;
+    $.each(users,function(index,v){
+        //选择当前类型的人员进行初始化赋值
+        // if(v.userType==type){
+        //     $("#roles").find("input[type='checkbox'][value='"+v.userId+"']").attr("checked","checked")
+        // }
+        if (v.userType == type) {
+                selected.push(v)
+            }
+    })
+
+    initUserList(roles)
+}
+
+
+function initUserList(json) {
+        $("#userList").find(">li").remove();
+        $.each(json, function (index, v) {
+            var li = $(['<li>', '<a href="javascript:;"><i class="fa fa-user"></i>&nbsp;'
+                , v.userName, '<i class="fa fa-check"></i></a> </li>'].join(''));
+            $("#userList").append(li);
+            li.on("click", function () {
+                if ($(this).hasClass("selected")) {
+                    $(this).removeClass("selected")
+                    selected.some((item, i) => {
+                        if (item.userId == v.userId) {
+                            selected.splice(i, 1)
+                        }
+                    })
+                } else {
+                    $(this).addClass("selected")
+                    selected.push(v)
+                }
+            })
+            selected.some((item, i) => {
+                if (item.userId == v.userId) {
+                    li.addClass("selected")
+                }
+            })
+        })
+    }
+</script>
+
+</html>

@@ -1,0 +1,142 @@
+{
+  "id": "1505341",
+  "name": "工作流",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "59603",
+      "name": "开始节点",
+      "font_class": "iconfontyuan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "162779",
+      "name": "喇叭",
+      "font_class": "laba",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "512379",
+      "name": "喇叭",
+      "font_class": "iconfonthuodonggonggao",
+      "unicode": "e75a",
+      "unicode_decimal": 59226
+    },
+    {
+      "icon_id": "644251",
+      "name": "icon-鼠标箭头-01",
+      "font_class": "mouse-pointer",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "751781",
+      "name": "撤销",
+      "font_class": "chexiao1",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "1511945",
+      "name": "属性",
+      "font_class": "shuxing",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "1964920",
+      "name": "撤销",
+      "font_class": "chexiao2",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "2358414",
+      "name": "icon-鼠标箭头-01",
+      "font_class": "icon-shubiaojiantou-",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "3119283",
+      "name": "喇叭",
+      "font_class": "laba1",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "3731420",
+      "name": "工作流",
+      "font_class": "gongzuoliu",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "4343026",
+      "name": "保存",
+      "font_class": "baocun",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "4793951",
+      "name": "长方形",
+      "font_class": "rectangle",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "5190785",
+      "name": "结束节点",
+      "font_class": "BMSzhuanqu_jieshujiedian",
+      "unicode": "e73e",
+      "unicode_decimal": 59198
+    },
+    {
+      "icon_id": "5387380",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "eabd",
+      "unicode_decimal": 60093
+    },
+    {
+      "icon_id": "5387517",
+      "name": "撤销",
+      "font_class": "chexiao",
+      "unicode": "eaf0",
+      "unicode_decimal": 60144
+    },
+    {
+      "icon_id": "5880073",
+      "name": "详情-并行网关",
+      "font_class": "xiangqing-binghangwangguan",
+      "unicode": "ebea",
+      "unicode_decimal": 60394
+    },
+    {
+      "icon_id": "5880133",
+      "name": "组件库-排他网关",
+      "font_class": "zujianku-paitawangguan",
+      "unicode": "ec07",
+      "unicode_decimal": 60423
+    },
+    {
+      "icon_id": "8433902",
+      "name": "路径",
+      "font_class": "lujing",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "8942190",
+      "name": "重做",
+      "font_class": "redo",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    }
+  ]
+}

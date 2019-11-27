@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+
+
+    <link href="lib/ztree/zTreeStyle.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="../lib/selectUser.js"></script>
+
+</head>
+
+<body>
+    <form class="form-horizontal" id="remind-app">
+        <div class="row" style="margin: 0 0 15px 0;">
+            <label class="col-xs-2 control-label">提醒对象：</label>
+            <div class="col-xs-10">
+                <label class="checkbox-inline" style="line-height: 22px;">
+                    <input type="checkbox" value="1" v-model="remindObj">
+                    处理人
+                </label>
+                <label class="checkbox-inline" style="line-height: 22px;">
+                    <input type="checkbox" value="2" v-model="remindObj">
+                    上级
+                </label>
+                <label class="checkbox-inline" style="line-height: 22px;">
+                    <input type="checkbox" value="3" id="selectUsers" v-model="remindObj">
+                    指定人
+                </label>
+            </div>
+        </div>
+        <div class="row" style="margin: 0 0 15px 0;" id="remindObj">
+            <label class="col-xs-2 control-label">指定人列表：</label>
+            <div class="col-xs-10">
+                <label type="button" title="添加指定人员" class="btn  btn-primary btn-xs"
+                    onclick="openSelect('selectUser.html', 3, '', 820, 470)"><i class="fa fa-plus"></i></label>
+                <div class="user-select" style="margin-top: 15px;">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row" style="margin: 0 0 15px 0;">
+            <label class="col-xs-2 control-label">提醒时间：</label>
+            <div class="col-xs-8">
+                <label class="control-label col-xs-2">距离</label>
+                <div class="col-xs-2"><input type="text" class="form-control" v-model="remindDay"/></div>
+
+                <label class="control-label">天<span style="color:red;">(0表示当天提醒)</span></label>
+            </div>
+        </div>
+        <div class="row" style="margin: 0 0 15px 0;">
+            <label class="col-xs-2 control-label">重复提醒：</label>
+            <div class="col-xs-5">
+                <label class="radio-inline" style="line-height: 22px;">
+                    <input type="radio" value="1" name="remindAgain" v-model="remindAgain"/>是
+                </label>
+                <label class="radio-inline" style="line-height: 22px;">
+                    <input type="radio" value="2" name="remindAgain" v-model="remindAgain"/>否
+                </label>
+            </div>
+        </div>
+    </form>
+</body>
+
+<script>
+
+
+    function init(remindRule) {
+        window.default_app = {
+            remindObj: [],
+            remindDay:0,
+            remindAgain:1
+        }
+        $.extend(window.default_app, remindRule, true);
+        
+        var vm = new Vue({
+            el: "#remind-app",
+            data: default_app
+        })
+        if(remindRule&&remindRule.users){
+            appendUsers(remindRule.users)
+        }
+
+        $("#selectUsers").on("click", function () {
+            remindObjStatus();
+        })
+        remindObjStatus();
+        function remindObjStatus() {
+            if ($("#selectUsers").is(":checked")) {
+                $("#remindObj").show();
+            } else {
+                $("#remindObj").hide();
+            }
+        }
+    }
+
+    function submitHandler(callback) {
+        var targetUsers = new Array();
+        //处理下user的数组
+        $.each(users, function (i, v) {
+            var u = {};
+            for (var k in v) {
+                if (k == "dom") {
+                    continue;
+                }
+                u[k] = v[k]
+            }
+            targetUsers.push(u);
+        })
+        var props = {};
+        $.extend(props, window.default_app, true);
+        props.users = targetUsers;
+        if (!props.Id) {
+            props.Id =randomString(16);
+        }
+        callback(props);
+    }
+
+
+    function randomString(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+
+</script>
+
+</html>
